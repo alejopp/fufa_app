@@ -10,6 +10,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_tournamenttype_direct_elimination"
         android:layout_width="0dp"
+        android:enabled="false"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:text="@string/direct_elimination"
@@ -31,6 +32,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_tournamenttype_groups"
         android:layout_width="0dp"
+        android:enabled="false"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/groups"
@@ -43,6 +45,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:enabled="false"
         android:text="Grupo y Eliminación"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/vgl_tournamenttype_75"
