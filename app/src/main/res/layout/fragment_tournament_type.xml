@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.TournamentTypeFragment">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_tournamenttype_direct_elimination"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="@string/direct_elimination"
+        app:layout_constraintEnd_toEndOf="@id/vgl_tournamenttype_75"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@id/vgl_tournamenttype_15"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tournamenttype_title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_tournamenttype_league"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/league"
+        app:layout_constraintEnd_toEndOf="@id/vgl_tournamenttype_75"
+        app:layout_constraintStart_toStartOf="@id/vgl_tournamenttype_15"
+        app:layout_constraintTop_toBottomOf="@+id/bt_tournamenttype_direct_elimination" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_tournamenttype_groups"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/groups"
+        app:layout_constraintEnd_toEndOf="@id/vgl_tournamenttype_75"
+        app:layout_constraintStart_toStartOf="@id/vgl_tournamenttype_15"
+        app:layout_constraintTop_toBottomOf="@+id/bt_tournamenttype_league" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_tournamenttype_group_and_elimination"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Grupo y Eliminación"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/vgl_tournamenttype_75"
+        app:layout_constraintStart_toStartOf="@id/vgl_tournamenttype_15"
+        app:layout_constraintTop_toBottomOf="@+id/bt_tournamenttype_groups"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_tournamenttype_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/choose_tournament_type"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vgl_tournamenttype_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent= "0.15 "/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vgl_tournamenttype_75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent= "0.85 "/>
+</androidx.constraintlayout.widget.ConstraintLayout>

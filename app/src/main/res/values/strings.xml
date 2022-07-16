@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">FufaApp</string>
+
+    <!--Main screen -->
+    <string name="world_cup">Mundial</string>
+    <string name="champions">Champions</string>
+    <string name="libertadores">Libertadores</string>
+    <string name="free_tournament">Torneo Libre</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_tournament_type">Elige el tipo de torneo</string>
+    <string name="direct_elimination">Eliminación Directa</string>
+    <string name="league">Liga</string>
+    <string name="groups">Grupos</string>
+</resources>
