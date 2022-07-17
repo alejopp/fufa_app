@@ -9,14 +9,25 @@
         android:id="@+id/homeFragment"
         android:name="com.example.fufaapp.presentation.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_tournamentTypeFragment"
             app:destination="@id/tournamentTypeFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/tournamentTypeFragment"
         android:name="com.example.fufaapp.presentation.ui.TournamentTypeFragment"
         android:label="fragment_tournament_type"
-        tools:layout="@layout/fragment_tournament_type" />
+        tools:layout="@layout/fragment_tournament_type">
+        <action
+            android:id="@+id/action_tournamentTypeFragment_to_configFragment"
+            app:destination="@id/configFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.example.fufaapp.presentation.ui.free_tournament.league.ConfigFragment"
+        android:label="fragment_config"
+        tools:layout="@layout/fragment_config" />
+
 </navigation>

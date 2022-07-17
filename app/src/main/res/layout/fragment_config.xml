@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_freetournament_league_back_forward" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_freetournament_league_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -38,14 +38,15 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_freetournament_league_assign_team_randomly" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fab_freetournament_league_add_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="24dp"
         android:clickable="true"
         android:src="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bt_freetournament_league_start_tournament"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.SwitchCompat
@@ -68,4 +69,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_freetournament_league_assign_team_randomly"
         app:layout_constraintTop_toTopOf="@+id/tv_freetournament_league_assign_team_randomly" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_freetournament_league_start_tournament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="@string/start_tournament"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="24dp"
+        android:paddingStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_freetournament_league_player"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
