@@ -13,8 +13,13 @@
     <string name="league">Liga</string>
     <string name="groups">Grupos</string>
     <string name="back_and_forward">Ida y vuelta</string>
-    <string name="assign_team_randomly">Asignar equipo aleatoriamente</string>
+    <string name="assign_team_randomly">Asignar equipo \naleatoriamente</string>
     <string name="participants">Participantes</string>
     <string name="start_tournament">Comenzar torneo</string>
     <string name="add_team">Agregar equipo</string>
+    <string name="players_name">Nombre del jugador</string>
+    <string name="team_name">Nombre del equipo</string>
+    <string name="add_player_and_team">Agregar jugador &amp; equipo</string>
+    <string name="cancel">Cancelar</string>
+    <string name="add">Agregar</string>
 </resources>
