@@ -32,12 +32,10 @@ class InputDialogAddPlayer(): DialogFragment() {
             val inflater = requireActivity().layoutInflater;
 
             _binding = DialogInputAddPlayerBinding.bind(inflater.inflate(R.layout.dialog_input_add_player,null))
-
-            // Inflate and set the layout for the dialog
-            // Pass null as the parent view because its going in the dialog layout
+            builder.setTitle("Agregar jugador y equipo")
             builder.setView(binding.root)
                 // Add action buttons
-                .setPositiveButton("signin") { _, _ ->
+                .setPositiveButton("Ok") { _, _ ->
                     val playerName = binding.etvPlayerName.text.toString()
                     val teamName = binding.etvTeamName.text.toString()
                     configViewModel.setPlayer(playerName,teamName)
