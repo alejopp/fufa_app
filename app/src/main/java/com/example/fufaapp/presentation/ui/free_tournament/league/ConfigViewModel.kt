@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class ConfigViewModel : ViewModel() {
-    private val listPlayers = mutableListOf<Player>()
+    val listPlayers = mutableListOf<Player>()
     private var _playerList = MutableLiveData<List<Player>>()
     val playerList: LiveData<List<Player>>
         get() = _playerList

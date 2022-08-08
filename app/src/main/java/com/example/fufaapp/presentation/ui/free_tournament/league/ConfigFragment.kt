@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.example.fufaapp.R
 import com.example.fufaapp.databinding.FragmentConfigBinding
 import com.example.fufaapp.domain.model.Player
 import com.example.fufaapp.domain.model.Team
@@ -42,6 +45,7 @@ class ConfigFragment : Fragment() {
             InputDialogAddPlayer().show(parentFragmentManager,"addPlayerDialog")
         }
         binding.btFreetournamentLeagueStartTournament.setOnClickListener {
+            findNavController().navigate(R.id.leagueTournamentFragmentDestination)
         }
     }
 
