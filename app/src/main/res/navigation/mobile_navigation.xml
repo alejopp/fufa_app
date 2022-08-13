@@ -3,31 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/homeFragmentDestination">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/homeFragmentDestination"
         android:name="com.example.fufaapp.presentation.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_tournamentTypeFragment"
-            app:destination="@id/tournamentTypeFragment" />
+            app:destination="@id/tournamentTypeFragmentDestination" />
     </fragment>
 
     <fragment
-        android:id="@+id/tournamentTypeFragment"
+        android:id="@+id/tournamentTypeFragmentDestination"
         android:name="com.example.fufaapp.presentation.ui.TournamentTypeFragment"
         android:label="fragment_tournament_type"
         tools:layout="@layout/fragment_tournament_type">
         <action
             android:id="@+id/action_tournamentTypeFragment_to_configFragment"
-            app:destination="@id/configFragment" />
+            app:destination="@id/configFragmentDestination" />
     </fragment>
     <fragment
-        android:id="@+id/configFragment"
+        android:id="@+id/configFragmentDestination"
         android:name="com.example.fufaapp.presentation.ui.free_tournament.league.ConfigFragment"
         android:label="fragment_config"
-        tools:layout="@layout/fragment_config" />
+        tools:layout="@layout/fragment_config" >
+        <action
+            android:id="@+id/action_configFragment_to_leagueTournamentFragment"
+            app:destination="@id/leagueTournamentFragmentDestination" />
+    </fragment>
+    <fragment
+        android:id="@+id/leagueTournamentFragmentDestination"
+        android:name="com.example.fufaapp.presentation.ui.free_tournament.league.LeagueTournamentFragment"
+        android:label="fragment_league_tournament"
+        tools:layout="@layout/fragment_league_tournament" />
 
 </navigation>

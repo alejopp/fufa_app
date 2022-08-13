@@ -1,26 +1,16 @@
 package com.example.fufaapp.util
 
 import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatDialogFragment
-import androidx.core.os.bundleOf
 import androidx.fragment.app.*
-import androidx.lifecycle.ViewModel
 import com.example.fufaapp.R
 import com.example.fufaapp.databinding.DialogInputAddPlayerBinding
-import com.example.fufaapp.presentation.ui.free_tournament.league.ConfigViewModel
-import com.example.fufaapp.presentation.ui.free_tournament.league.adapters.PlayerAdapter
+import com.example.fufaapp.presentation.ui.free_tournament.league.LeagueTournamentViewModel
 
 class InputDialogAddPlayer(): DialogFragment() {
 
-    private val configViewModel: ConfigViewModel by activityViewModels()
+    private val leagueTournamentViewModel: LeagueTournamentViewModel by activityViewModels()
     private var _binding: DialogInputAddPlayerBinding? = null
     private val binding get() = _binding!!
 
@@ -38,7 +28,7 @@ class InputDialogAddPlayer(): DialogFragment() {
                 .setPositiveButton("Ok") { _, _ ->
                     val playerName = binding.etvPlayerName.text.toString()
                     val teamName = binding.etvTeamName.text.toString()
-                    configViewModel.setPlayer(playerName,teamName)
+                    leagueTournamentViewModel.setPlayer(playerName,teamName)
                 }
                 .setNegativeButton(R.string.cancel) { _, _ ->
 
