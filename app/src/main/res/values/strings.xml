@@ -22,4 +22,12 @@
     <string name="add_player_and_team">Agregar jugador &amp; equipo</string>
     <string name="cancel">Cancelar</string>
     <string name="add">Agregar</string>
+    <string name="position_table">Tabla de posiciones</string>
+    <string name="calendar">Calendario</string>
+    <string name="position_mark">"# " </string>
+    <string name="team">Equipo</string>
+    <string name="goals_for">"GF " </string>
+    <string name="goals_against">"GC "</string>
+    <string name="goal_difference">"DF "</string>
+    <string name="points">"PTS "</string>
 </resources>
