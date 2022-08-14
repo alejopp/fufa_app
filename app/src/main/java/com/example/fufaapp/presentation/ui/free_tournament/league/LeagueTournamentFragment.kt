@@ -9,6 +9,7 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import com.example.fufaapp.databinding.FragmentLeagueTournamentBinding
+import com.example.fufaapp.presentation.ui.free_tournament.league.adapters.MatchAdapter
 
 
 class LeagueTournamentFragment : Fragment() {
@@ -46,7 +47,7 @@ class LeagueTournamentFragment : Fragment() {
         //Create fixture
         leagueTournamentViewModel.createFixture()
         //Set fixture in screen
-        binding.tvFixture.text = leagueTournamentViewModel.fixtureList.toString()
+        binding.rvLeagueTournamentMatches.adapter = MatchAdapter(leagueTournamentViewModel.fixtureList)
 
         return binding.root
     }

@@ -23,7 +23,7 @@ class LeagueTournamentFixture: Fixture {
         return totalGenericMatches
     }
 
-    override fun createGenericFixture(teamsList: List<String>): List<List<String>> {
+    override fun createFixture(teamsList: List<String>): List<List<String>> {
         val totalGenericMatches = createTotalGenericMatches(teamsList.size)
         val totalGenericTeams = createGenericTeams(teamsList.size)
         val roundList = mutableListOf<String>()

@@ -77,14 +77,13 @@
 
     <ImageView
         android:id="@+id/iv_home_logo"
-        android:layout_width="184dp"
-        android:layout_height="162dp"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
         android:layout_marginTop="50dp"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/gl_main2"
-        app:layout_constraintEnd_toStartOf="@+id/gl_main2"
-        app:layout_constraintStart_toStartOf="@id/gl_main1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/world_cup" />
+        app:srcCompat="@drawable/fufa_profile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

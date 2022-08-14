@@ -30,4 +30,5 @@
     <string name="goals_against">"GC "</string>
     <string name="goal_difference">"DF "</string>
     <string name="points">"PTS "</string>
+    <string name="vs">vs</string>
 </resources>

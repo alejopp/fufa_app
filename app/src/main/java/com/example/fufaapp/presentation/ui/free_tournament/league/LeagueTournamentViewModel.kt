@@ -1,6 +1,5 @@
 package com.example.fufaapp.presentation.ui.free_tournament.league
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,7 +26,7 @@ class LeagueTournamentViewModel : ViewModel() {
         val teamList = listPlayers.map{ player ->
             player.team.name
         }
-        this.fixtureList = this.fixture.createGenericFixture(teamList)
+        this.fixtureList = this.fixture.createFixture(teamList)
     }
 
 

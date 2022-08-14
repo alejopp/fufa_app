@@ -6,6 +6,6 @@ interface Fixture {
     }
     fun createGenericTeams(numberOfTeams: Int): MutableList<String>
     fun createTotalGenericMatches(numberOfTeams: Int): MutableList<String>
-    fun createGenericFixture(numberOfTeams: List<String>): List<List<String>>
+    fun createFixture(numberOfTeams: List<String>): List<List<String>>
 
 }
