@@ -37,15 +37,26 @@ class LeagueTournamentFixture: Fixture {
             val teamThatRest = teamRestCandidates.removeFirst()
             while (roundList.size < matchesPerRound){
                 if(roundList.isEmpty()){
+                    var candidate: String?
                     if (matchCantPlay.isEmpty()){
-                        val candidate = totalGenericMatches.find {
-                            !it.contains(teamThatRest)
+                        candidate = if(teamsList.size % 2 == 0 ){ // Is teamList even?
+                            totalGenericMatches.first()
+                        } else{
+                            totalGenericMatches.find {
+                                !it.contains(teamThatRest)
+                            }
                         }
                         roundList.add(candidate!!)
                     }
                     else{
-                        val candidate = totalGenericMatches.find {
-                            it !in matchCantPlay && !it.contains(teamThatRest)
+                        candidate = if(teamsList.size % 2 == 0 ){ // Is teamList even?
+                            totalGenericMatches.find {
+                                it !in matchCantPlay
+                            }
+                        } else{
+                            totalGenericMatches.find {
+                                it !in matchCantPlay && !it.contains(teamThatRest)
+                            }
                         }
                         roundList.add(candidate!!)
                     }
@@ -55,7 +66,7 @@ class LeagueTournamentFixture: Fixture {
                     roundList.map {
                         teamCantPlay += it
                     }
-                    teamCantPlay += teamThatRest
+                    if(teamsList.size % 2 != 0) teamCantPlay += teamThatRest
                     teamCantPlay += "]"
                     val m = totalGenericMatches.find {
                         !it.contains(teamCantPlay.toRegex())
