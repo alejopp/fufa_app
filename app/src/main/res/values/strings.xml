@@ -31,4 +31,5 @@
     <string name="goal_difference">"DF "</string>
     <string name="points">"PTS "</string>
     <string name="vs">vs</string>
+    <string name="round">Fecha</string>
 </resources>

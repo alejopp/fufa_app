@@ -13,6 +13,7 @@ class MatchAdapter(private val matches: List<List<String>>): RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: MatchViewHolder, position: Int) {
+        holder.binding.tvRoundNumber.text = (position + 1).toString()
         holder.binding.tvHt.text = matches[position][0]
         holder.binding.tvVt.text = matches[position][1]
     }
