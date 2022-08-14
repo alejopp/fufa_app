@@ -1,6 +1,7 @@
 package com.example.fufaapp.presentation.ui.free_tournament.league
 
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,9 +32,10 @@ class LeagueTournamentFragment : Fragment() {
                 val tr = TableRow(requireContext())
                 for (j in 0..MATCH_DETAIL_ATRIBUTES_SIZE){
                     val tv = TextView(requireContext())
+                    tv.gravity = Gravity.CENTER
                     when(j){
                         0 -> tv.text = leagueTournamentViewModel.listPlayers[i].position.toString()
-                        1 -> tv.text = leagueTournamentViewModel.listPlayers[i].team.name
+                        1 -> tv.text = leagueTournamentViewModel.listPlayers[i].team.name.also { tv.gravity = Gravity.START }
                         2 -> tv.text = leagueTournamentViewModel.listPlayers[i].goalsFor.toString()
                         3 -> tv.text = leagueTournamentViewModel.listPlayers[i].goalsAgainst.toString()
                         4 -> tv.text = leagueTournamentViewModel.listPlayers[i].goalDifference.toString()
