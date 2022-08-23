@@ -8,6 +8,11 @@ import com.example.fufaapp.domain.model.Team
 
 
 class LeagueTournamentViewModel : ViewModel() {
+
+    companion object{
+        const val TEAMS_PER_MATCH = 2
+    }
+
     val listPlayers = mutableListOf<Player>()
     private var fixture = LeagueTournamentFixture()
     private var _playerList = MutableLiveData<List<Player>>()
@@ -22,6 +27,10 @@ class LeagueTournamentViewModel : ViewModel() {
             _playerList.postValue(listPlayers)
     }
 
+    fun updatePlayerListTable(playerList: MutableList<Player>){
+        _playerList.postValue(playerList)
+    }
+
     fun createFixture(){
         val teamList = listPlayers.map{ player ->
             player.team.name
@@ -29,5 +38,9 @@ class LeagueTournamentViewModel : ViewModel() {
         this.fixtureList = this.fixture.createFixture(teamList)
     }
 
+    fun sortPlayerList(){
+        this.listPlayers.sortWith(compareBy({it.points},{it.goalDifference},{it.goalsFor}))
+        this.listPlayers.reverse()
+    }
 
 }

@@ -32,28 +32,39 @@ class LeagueTournamentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLeagueTournamentBinding.inflate(inflater,container,false)
+        setInitialConfiguration()
+        return binding.root
+    }
 
-        fillTournamentTable(leagueTournamentViewModel.listPlayers)
-
-        //Create fixture
+    private fun setInitialConfiguration(){
+        fillTournamentTable()
         leagueTournamentViewModel.createFixture()
         //Set fixture in screen
         binding.rvLeagueTournamentMatches.adapter = MatchAdapter(
             leagueTournamentViewModel.fixtureList,leagueTournamentViewModel
         )
-
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        listenEvents()
+        observe()
+    }
+
+    private fun listenEvents(){
         binding.btUpgrade.setOnClickListener {
             //fillTournamentTable(leagueTournamentViewModel.listPlayers)
-            updateTable(leagueTournamentViewModel.listPlayers)
+            updateTable()
         }
     }
 
-    private fun fillTournamentTable(listPlayers: MutableList<Player>){
+    private fun observe(){
+        leagueTournamentViewModel.playerList.observe(viewLifecycleOwner){
+            updateTable()
+        }
+    }
+
+    private fun fillTournamentTable(){
         for(i in 0 until leagueTournamentViewModel.listPlayers.size){
             val tr = TableRow(requireContext())
             for (j in 0..MATCH_DETAIL_ATTRIBUTES_SIZE){
@@ -73,19 +84,20 @@ class LeagueTournamentFragment : Fragment() {
         }
     }
 
-    private fun updateTable(listPlayers: MutableList<Player>){
-        for(i in 0 until leagueTournamentViewModel.listPlayers.size){
-            val tr = binding.tlLeagueTournamentPositionTable.getChildAt(i+1) as TableRow
-            for (j in 0..MATCH_DETAIL_ATTRIBUTES_SIZE){
-                val tv = tr.getChildAt(j) as TextView
+    private fun updateTable(){
+        leagueTournamentViewModel.sortPlayerList()
+        for(position in 0 until leagueTournamentViewModel.listPlayers.size){
+            val tr = binding.tlLeagueTournamentPositionTable.getChildAt(position+1) as TableRow
+            for (tableAttribute in 0..MATCH_DETAIL_ATTRIBUTES_SIZE){
+                val tv = tr.getChildAt(tableAttribute) as TextView
                 tv.gravity = Gravity.CENTER
-                when(j){
-                    0 -> tv.text = leagueTournamentViewModel.listPlayers[i].position.toString()
-                    1 -> tv.text = leagueTournamentViewModel.listPlayers[i].team.name.also { tv.gravity = Gravity.START }
-                    2 -> tv.text = leagueTournamentViewModel.listPlayers[i].goalsFor.toString()
-                    3 -> tv.text = leagueTournamentViewModel.listPlayers[i].goalsAgainst.toString()
-                    4 -> tv.text = leagueTournamentViewModel.listPlayers[i].goalDifference.toString()
-                    5 -> tv.text = leagueTournamentViewModel.listPlayers[i].points.toString()
+                when(tableAttribute){
+                    0 -> tv.text = (position + 1).toString()
+                    1 -> tv.text = leagueTournamentViewModel.listPlayers[position].team.name.also { tv.gravity = Gravity.START }
+                    2 -> tv.text = leagueTournamentViewModel.listPlayers[position].goalsFor.toString()
+                    3 -> tv.text = leagueTournamentViewModel.listPlayers[position].goalsAgainst.toString()
+                    4 -> tv.text = leagueTournamentViewModel.listPlayers[position].goalDifference.toString()
+                    5 -> tv.text = leagueTournamentViewModel.listPlayers[position].points.toString()
                 }
             }
         }

@@ -80,15 +80,20 @@ class LeagueTournamentFixture: Fixture {
                     }
                 }
             }
+            println("Round list $roundList")
             matches += roundList
             matchCantPlay.clear()
             totalGenericMatches.removeAll(roundList.map{it})
             roundList.clear()
-            println("fixture $matches matchCantPlay $matchCantPlay fl $roundList mp $totalGenericMatches" )
         }
-        val fixture = matches.map{
-            it.map{teamsList[Fixture.LETTERS.indexOf(it)]}
+        println("Matches $matches")
+        val fixture = matches.map{ genericMatch ->
+            genericMatch.map{ genericTeam ->
+                teamsList[Fixture.LETTERS.indexOf(genericTeam)]
+            }
         }
+
+        println("fixture $fixture")
         return fixture
     }
 

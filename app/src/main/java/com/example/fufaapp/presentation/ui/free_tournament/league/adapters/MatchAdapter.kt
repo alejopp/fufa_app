@@ -1,8 +1,10 @@
 package com.example.fufaapp.presentation.ui.free_tournament.league.adapters
 
+import android.opengl.Visibility
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fufaapp.databinding.ItemMatchBinding
@@ -23,7 +25,13 @@ class MatchAdapter(
     }
 
     override fun onBindViewHolder(holder: MatchViewHolder, position: Int) {
-        holder.binding.tvRoundNumber.text = (position + 1).toString()
+        val matchesPerRound = leagueTournamentViewModel.listPlayers.size / LeagueTournamentViewModel.TEAMS_PER_MATCH
+        if(position % matchesPerRound != 0){
+            holder.binding.tvRound.visibility = View.GONE
+        } else{
+            holder.binding.tvRoundNumber.text = ((position / matchesPerRound) + 1).toString()
+        }
+        //holder.binding.tvRoundNumber.text = (position + 1).toString()
         holder.binding.tvHt.text = matches[position][0]
         holder.binding.tvVt.text = matches[position][1]
 
@@ -106,6 +114,7 @@ class MatchAdapter(
                             it.team.name == visitorTeam
                         }?.points = visitorTeamPoints + Match.WIN_POINTS
                     }
+                    leagueTournamentViewModel.updatePlayerListTable(leagueTournamentViewModel.listPlayers)
                 }
             }
             override fun afterTextChanged(s: Editable?){}
@@ -186,14 +195,13 @@ class MatchAdapter(
                         leagueTournamentViewModel.listPlayers.find {
                             it.team.name == visitorTeam
                         }?.points = visitorTeamPoints + Match.TIE_POINTS
-                    }
-                    else{
+                    } else{
                         leagueTournamentViewModel.listPlayers.find {
                             it.team.name == visitorTeam
                         }?.points = visitorTeamPoints + Match.WIN_POINTS
                     }
+                    leagueTournamentViewModel.updatePlayerListTable(leagueTournamentViewModel.listPlayers)
                 }
-
             }
 
             override fun afterTextChanged(s: Editable?){}
